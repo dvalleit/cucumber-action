@@ -22,7 +22,8 @@ jobs:
     - run: firefox --version
     - name: Build with Maven
       run: mvn -B package --file pom.xml test
-    - run: |
+    - if: fails()
+      run: |
         pwd
         ls -la
         cd target/Destination
